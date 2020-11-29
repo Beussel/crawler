@@ -1,5 +1,13 @@
-from Handler import GelbeseitenHandler
-
+from Handler import *
+from Model import *
 
 if __name__ == '__main__':
-    GelbeseitenHandler.crawl()
+    dataHandler = DataHandler()
+    company = Company("testID", "testName", "testBranche", "testStreet", "10234", "testCity",
+                      "321456346", "www.wwww.de")
+
+    dataHandler.insert(company)
+    #dataHandler.delete(company.id)
+    dataHandler.close_connection()
+
+
