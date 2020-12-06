@@ -28,9 +28,14 @@ class DataHandler:
                + company.id + "', '" + company.name + "', '" + company.branche + "', '" + company.street + "', '" \
                + company.plz + "', '" + company.city + "', '" + company.phone_number + "', '" + company.website + "');"
         self.execute_sql(sql)
+        print("Inserted: " + company.id)
 
     def delete(self, id):
         sql = "Delete from \"Company\" where id = '" + id + "';"
+        self.execute_sql(sql)
+
+    def delete_all(self):
+        sql = "Delete from \"Company\";"
         self.execute_sql(sql)
 
     def execute_sql(self, sql):
