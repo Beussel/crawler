@@ -54,6 +54,7 @@ class GelbeseitenHandler:
             content = self.get_url_content(article.find('a').get('href'))
             soup = BeautifulSoup(content, "html.parser")
             company.set_website(self.get_website(soup))
+            company.set_mail(self.get_mail(soup))
             dataHandler.insert(company)
             self.insertedIds.append(company.id)
         dataHandler.close_connection()
@@ -63,7 +64,13 @@ class GelbeseitenHandler:
         return string.translate(str.maketrans('', '', filter))
 
     def get_website(self, soup):
-        mail = soup.find('a', {'property': 'url'})
+        website = soup.find('a', {'property': 'url'})
+        if website != None:
+            return website.contents[3].contents[0]
+        return ""
+
+    def get_mail(self, soup):
+        mail = soup.find('a', {'property': 'email'})
         if mail != None:
             return mail.contents[3].contents[0]
         return ""

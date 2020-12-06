@@ -9,6 +9,7 @@ class Company:
         self.city = ""
         self.phone_number = ""
         self.website = ""
+        self.mail = ""
 
     def set_id(self, id):
         self.id = id
@@ -33,3 +34,6 @@ class Company:
 
     def set_website(self, website):
         self.website = website
+
+    def set_mail(self, mail):
+        self.mail = mail
