@@ -1,11 +1,11 @@
-import requests
 from bs4 import BeautifulSoup
-import time
-from Model import *
+
 from Handler import *
+from Handler.CrawlerHelper import CrawlerHelper
+from Model import *
 
 
-class GelbeseitenHandler:
+class GelbeseitenHandler(CrawlerHelper):
     insertedIds = []
 
     def __init__(self, ort):
@@ -74,7 +74,3 @@ class GelbeseitenHandler:
         if mail != None:
             return mail.contents[3].contents[0]
         return ""
-
-    def get_url_content(self, url):
-        time.sleep(1)
-        return requests.get(url).text

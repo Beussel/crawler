@@ -4,7 +4,9 @@ if __name__ == '__main__':
     #dataHandler = DataHandler()
     #dataHandler.delete_all()
     #dataHandler.close_connection()
-    gelbeseitenHandler = GelbeseitenHandler("Leipzig")
+    #gelbeseitenHandler = GelbeseitenHandler("Leipzig")
+
+    BasislagerHandler()
 
 
 
