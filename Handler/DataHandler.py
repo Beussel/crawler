@@ -25,11 +25,16 @@ class DataHandler:
 
     def insert(self, company):
         sql = "INSERT INTO \"Company\" VALUES('" \
-               + company.id + "', '" + company.name + "', '" + company.branche + "', '" + company.street + "', '" \
+               + company.id + "', '" + self.escape_string(company.name) + "', '" + company.branche + "', '" + company.street + "', '" \
                + company.plz + "', '" + company.city + "', '" + company.phone_number + "', '" + company.website + "', '"\
                + company.mail + "');"
         self.execute_sql(sql)
         print("Inserted: " + company.id)
+
+    def escape_string(self, string):
+        if '\'' in string:
+            return string.replace('\'', '\'\'')
+        return string
 
     def delete(self, id):
         sql = "Delete from \"Company\" where id = '" + id + "';"
